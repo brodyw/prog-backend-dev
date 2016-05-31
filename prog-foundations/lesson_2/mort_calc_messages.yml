@@ -1,0 +1,16 @@
+# mort_calc_messages.yml
+
+:eng:
+  :welcome: 'Hello! Welcome to the mortgage calculator!'
+  :language: 'Please type 1) for English or 2) for Spanish.'
+  :redo: 'Bloop bleep... Invalid answer!'
+  :loan_amount: 'What is the loan amount?'
+  :apr_amount: 'What is the APR?'
+  :duration: 'What is the duration of the loan?'
+  :do_again: 'Would you like to make another calculation? Y) Yes N) No'
+:span:
+  :redo: 'Intentalo de nuevo'
+  :loan_amount: 'Cual es el monto del prestamo'
+  :apr_amount: 'Cuando APR'
+  :duration: 'Cual es la duracion del prestamo'
+  :do_again: 'le gustaría hacer otro cálculo S) Si N) No'

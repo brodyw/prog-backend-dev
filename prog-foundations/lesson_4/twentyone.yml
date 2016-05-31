@@ -1,0 +1,14 @@
+# twentyone.yml
+
+:welcome: 'Welcome to Twenty One!'
+:hit_stay: 'Would you like to hit(h) or stay(s)?'
+:redo_h_s: "Please respond either 'h' or 's'"
+:p_busted: 'You have busted!'
+:p_lost: 'You have lost this round'
+:d_stays: 'The dealer stays'
+:d_busted: 'The dealer busted!'
+:p_won: 'You have won this round!'
+:tie: 'This round was a tie'
+:play_again: 'Play again? Yes(y) or No (n)'
+:redo_p_a: "Please enter 'y' for yes or 'n' for no"
+:bye: 'Thanks for playing 21!'

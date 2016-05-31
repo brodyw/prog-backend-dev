@@ -1,0 +1,4 @@
+# calculator_messages_spanish.yml
+
+:welcome: 'Hola Senior! Como te llamas?'
+:valid_name: 'No es bueno :('

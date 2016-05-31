@@ -1,0 +1,5 @@
+# calculator_messages_english.yml
+
+:welcome: 'Welcome to Calculator! Enter your name:'
+:valid_name: 'Make sure to enter a valid name.'
+

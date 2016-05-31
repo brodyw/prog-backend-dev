@@ -1,0 +1,11 @@
+# rps_messages.yml
+
+:welcome: "Welcome to 'Rock Paper Scissors'"
+:win_round: 'You win the round!'
+:lose_round: 'You lose the round!'
+:tie_round: "The round is a tie!"
+:again: 'Do you want to play again? Y) for yes'
+:bye: 'Thanks for playing! Goodbye!'
+:not_valid: "That's not a valid choice"
+:win_game: 'Congratulations! You were the first to five points!'
+:lose_game: 'Sorry, you lost the game'

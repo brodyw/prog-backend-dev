@@ -1,0 +1,19 @@
+# pseudocode.rb
+=begin
+
+--a method that returns the sum of two integers--
+  Given two integers
+  Return the first integer plus the second integer
+
+--a method that takes an array of strings, and returns a string that is all those strings concatenated together--
+  Given an array of strings
+  Start at first value in array
+    -Return value in array concatenated with a method call for next value in array
+    
+  START METHOD
+  
+  # Given an array of strings
+  # Default index = 0
+  IF index == length of array
+    then RETURN empty string
+  RETURN value of array at index + METHOD(index + 1)
