@@ -1,30 +1,18 @@
 # good_dog.rb
 
 class GoodDog
-  attr_accessor :name, :height, :weight
- 
-  def initialize(n, h, w)
+  DOG_YEARS = 7
+
+  attr_accessor :name, :age
+
+  def initialize(n, a)
     self.name = n
-    self.height = h
-    self.weight = w
+    self.age = a* DOG_YEARS
   end
 
-  def speak
-    "#{name} says Arf!"
-  end
-
-  def change_info(n, h, w)
-    self.name = n
-    self.height = h
-    self.weight = w
-  end
-
-  def info
-    "#{name} is #{height} tall and weighs #{weight}"
+  def to_s
+    puts "My name is #{name} and I am #{age} dog years old"
   end
 end
 
-sparky = GoodDog.new('Sparky', 6, 7)
-puts sparky.info
-sparky.change_info('Sparko', 60, 70)
-puts sparky.info
+puts GoodDog.new('Sparky', 7)
