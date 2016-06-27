@@ -1,18 +1,24 @@
 # my_car.rb
 
-class MyCar
-  attr_accessor :color, :model, :speed
-  attr_reader :year
+module Liftable
+  def lift
+    puts 'This truck has been lifted'
+  end
+end
 
+class Vehicle
+  attr_accessor :year, :model, :color, :speed
+  @@number_of_vehicles = 0
   def self.gas_mileage(distance, gas)
     distance.to_f/gas
   end
 
   def initialize(y, c, m)
-    @year = y
     self.color = c
-    self.model = m
     self.speed = 0
+    self.year = y
+    self.model = m
+    @@number_of_vehicles += 1
   end
 
   def accel(inc)
@@ -20,7 +26,7 @@ class MyCar
   end
 
   def decel(dec)
-    self.speed -= dec
+    self.sped -= dec
   end
 
   def turn_off
@@ -33,7 +39,20 @@ class MyCar
 
   def to_s
     "#{year} #{model} moving at #{speed} mph"
-  end 
+  end
+
+  def self.num_vehicles
+    @@number_of_vehicles
+  end
+end
+
+class MyCar < Vehicle
+  TYPE = 'car'.freeze
+end
+
+class MyTruck < Vehicle
+  include Liftable
+  TYPE = 'truck'.freeze
 end
 
 my_mazda = MyCar.new(2010, 'blue', 'mazda 3')
@@ -42,3 +61,8 @@ puts my_mazda
 my_mazda.spray_paint('purple')
 puts my_mazda
 puts MyCar.gas_mileage(10, 5)
+puts Vehicle.num_vehicles
+
+my_ford = MyTruck.new(2009, 'black', 'Ford Trucky')
+puts my_ford
+puts my_ford.lift
