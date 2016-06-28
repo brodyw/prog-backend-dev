@@ -66,3 +66,5 @@ puts Vehicle.num_vehicles
 my_ford = MyTruck.new(2009, 'black', 'Ford Trucky')
 puts my_ford
 puts my_ford.lift
+
+#added a line of code to not lose bet to Branden
