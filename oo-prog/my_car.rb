@@ -7,6 +7,7 @@ module Liftable
 end
 
 class Vehicle
+  require 'time'
   attr_accessor :year, :model, :color, :speed
   @@number_of_vehicles = 0
   def self.gas_mileage(distance, gas)
@@ -42,7 +43,16 @@ class Vehicle
   end
 
   def self.num_vehicles
-    @@number_of_vehicles
+    puts @@number_of_vehicles
+  end
+
+  def age
+    curr_year - year
+  end
+
+  private
+  def curr_year
+    Time.now.year
   end
 end
 
@@ -66,6 +76,7 @@ puts Vehicle.num_vehicles
 my_ford = MyTruck.new(2009, 'black', 'Ford Trucky')
 puts my_ford
 puts my_ford.lift
+puts "The age of my truck is: #{my_ford.age}"
 
 #added a line of code to not lose bet to Branden
 #added a second line of code again to not lose bet
