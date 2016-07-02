@@ -125,3 +125,5 @@ class RPSGame
 end
 
 RPSGame.new.play
+
+# added a line to have a commit
