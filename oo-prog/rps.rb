@@ -12,51 +12,49 @@
 class Player
   attr_accessor :move, :name
 
-  def initialize(pt = :human)
-    @player_type = pt
+  def initialize
     set_name
   end
+end
 
+
+class Human < Player
   def set_name
-    if human?
-      n = nil
-      loop do
-        puts "What's your name?"
-        n = gets.chomp
-        break unless n.empty?
-        puts 'Please enter a valid name'
-      end
-      self.name = n 
-    else
-      self.name = ['R2D2', 'Hal', 'Chappie'].sample
+    n = nil
+    loop do
+      puts "What's your name?"
+      n = gets.chomp
+      break unless n.empty?
+      puts 'Please enter a valid name'
     end
+    self.name = n 
   end
 
   def choose
-    if human?
-      self.move = nil
-      while self.move == nil
-        puts 'Please choose rock(r), paper(p), or scissors(s):'
-        self.move = case gets.downcase.chomp
-                    when 'rock' , 'r'
-                      'rock'
-                    when 'paper' , 'p'
-                      'paper'
-                    when 'scissors' , 's'
-                      'scissors'
-                    else
-                      puts 'Bad input.'
-                    end
-      end
-    else
-      self.move = ['rock', 'paper', 'scissors'].sample
+    self.move = nil
+    while self.move == nil
+      puts 'Please choose rock(r), paper(p), or scissors(s):'
+      self.move = case gets.downcase.chomp
+                  when 'rock' , 'r'
+                    'rock'
+                  when 'paper' , 'p'
+                    'paper'
+                  when 'scissors' , 's'
+                    'scissors'
+                  else
+                    puts 'Bad input.'
+                  end
     end
   end
+end
 
-  private
+class Computer < Player
+  def set_name
+    self.name = ['R2D2', 'Hal', 'Chappie'].sample
+  end
 
-  def human?
-    @player_type == :human
+  def choose
+    self.move = ['rock', 'paper', 'scissors'].sample
   end
 end
 
@@ -97,8 +95,8 @@ class RPSGame
   end
 
   def initialize
-    self.human = Player.new
-    self.computer = Player.new(:computer)
+    self.human = Human.new
+    self.computer = Computer.new
   end
 
   def play_again?
