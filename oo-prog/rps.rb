@@ -17,7 +17,6 @@ class Player
   end
 end
 
-
 class Human < Player
   def set_name
     n = nil
@@ -31,20 +30,14 @@ class Human < Player
   end
 
   def choose
-    self.move = nil
-    while self.move == nil
-      puts 'Please choose rock(r), paper(p), or scissors(s):'
-      self.move = case gets.downcase.chomp
-                  when 'rock' , 'r'
-                    'rock'
-                  when 'paper' , 'p'
-                    'paper'
-                  when 'scissors' , 's'
-                    'scissors'
-                  else
-                    puts 'Bad input.'
-                  end
+    choice = nil
+    loop do
+      puts "Please choose rock, paper, or scissors:"
+      choice = gets.downcase.chomp
+      break if Move::HANDS.include? choice
+      puts "Sorry, invalid choice."
     end
+    self.move = Move.new(choice)
   end
 end
 
@@ -54,13 +47,42 @@ class Computer < Player
   end
 
   def choose
-    self.move = ['rock', 'paper', 'scissors'].sample
+    self.move = Move.new(Move::HANDS.sample)
   end
 end
 
 class Move
-  def initialize
+  HANDS = ['rock', 'paper', 'scissors']
 
+  def initialize(h)
+    @hand = h
+  end
+
+  def >(other_move)
+    return case @hand
+           when 'rock'
+             other_move.scissors? ? true : false
+           when 'scissors'
+             other_move.paper? ? true : false
+           when 'paper'
+             other_move.rock? ? true: false
+           end
+  end
+
+  def rock?
+    @hand == 'rock' 
+  end
+
+  def paper?
+    @hand == 'paper'
+  end
+
+  def scissors?
+    @hand == 'scissors'
+  end
+
+  def to_s
+    @hand
   end
 end
 
@@ -78,19 +100,12 @@ class RPSGame
   def display_winner
     puts "#{human.name} chose #{human.move}."
     puts "#{computer.name} chose #{computer.move}."
-    case human.move
-    when 'rock'
-      puts "It's a tie!" if computer.move == 'rock'
-      puts 'You won!' if computer.move == 'scissors'
-      puts 'Computer won!' if computer.move == 'paper'
-    when 'paper'
-      puts "It's a tie!" if computer.move == 'paper'
-      puts 'You won!' if computer.move == 'rock'
-      puts 'Computer won!' if computer.move == 'scissors'
-    when 'scissors'
-      puts "It's a tie!" if computer.move == 'scissors'
-      puts 'You won!' if computer.move == 'paper'
-      puts 'Computer won!' if computer.move == 'rock'
+    if human.move > computer.move
+      puts "#{human.name} won this round!"
+    elsif computer.move > human.move
+      puts "#{computer.name} won this round!"
+    else
+      puts "It's a tie!"
     end
   end
 
@@ -123,5 +138,3 @@ class RPSGame
 end
 
 RPSGame.new.play
-
-# added a line to have a commit
