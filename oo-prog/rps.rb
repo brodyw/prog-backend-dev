@@ -138,3 +138,5 @@ class RPSGame
 end
 
 RPSGame.new.play
+
+# added a line to not lose bet with branden
