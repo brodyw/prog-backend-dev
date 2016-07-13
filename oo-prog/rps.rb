@@ -135,8 +135,8 @@ class RPSGame
       break unless play_again?
     end
   end
+
 end
 
 RPSGame.new.play
 
-# added a line to not lose bet with branden
