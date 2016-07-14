@@ -138,5 +138,7 @@ class RPSGame
 
 end
 
-RPSGame.new.play
+hello = RPSGame.new
+puts hello.instance_variables
+hello.play
 
